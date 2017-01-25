@@ -37,7 +37,7 @@ describe('List Model', function() {
         expect(anotherList.listEl()).toEqual(expectedString2);
       });
 
-      it('the listEl method should create a string representing the lists\'s option', function() {
+      it('the optionEl method should create a string representing the lists\'s option', function() {
         var expectedString1 = '<option value="0">Jon\'s List</option>',
             expectedString2 = '<option value="1">Tristan\'s List</option>';
         expect(list.optionEl()).toEqual(expectedString1);
