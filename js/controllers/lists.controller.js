@@ -8,7 +8,7 @@ function ListsController() {
   this.$addTaskForm = $('#add_task')
   this.$wrapper = $('#wrapper')
 
-  $('#add_list').on("submit", (event) => { 
+  $('#add_list').on("submit", (event) => {
     event.preventDefault()
     this.init(event) })
 
@@ -19,14 +19,14 @@ ListsController.prototype.init = function(event_obj) {
   if (event_obj === undefined ) {
     this.$addTaskForm.css('display', 'none')
   }
-  // submit new list 
+  // submit new list
   else if (event_obj.currentTarget.id === "add_list") {
       this.$addTaskForm.css('display', 'block')
-        let newList = new List(this.$listTitleInput.val())
+        var newList = new List(this.$listTitleInput.val())
         this.$listTitleInput.val('')
 
         newList.build()
-        $('button').last().click( (event) => { 
+        $('button').last().click( (event) => {
            this.init(event) })
   }
   // click x to remove list
@@ -37,10 +37,10 @@ ListsController.prototype.init = function(event_obj) {
     var $listDivToDelete = $(`#list-${listIDToDelete}`).parent()
     var $listOptionToDelete = $(`[value="${listIDToDelete}"]`)
     listToDelete.destroy($listDivToDelete, $listOptionToDelete, listToDelete )
-    
+
     // id="x-${this.id}"
     // need to find the sibling ul element to the event's button, extract its data-id tag from the ul
-    // $('[data-id="mydataIdValue"]'); 
+    // $('[data-id="mydataIdValue"]');
     // .siblings( [selector ] )
 
     //  return `<div class="list"><h2><button class="destroy-list">x</button> ${this.title}</h2><ul id="list-${this.id}" data-id="${this.id}"></ul></div>`
@@ -52,4 +52,3 @@ ListsController.prototype.init = function(event_obj) {
   }
 
 }
-
